@@ -1,0 +1,23 @@
+{
+  "name": "simple-menu-pizza-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Leandro Bezerra <leandrokw@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-newer": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify-es": "^1.0.4"
+  },
+  "dependencies": {}
+}
