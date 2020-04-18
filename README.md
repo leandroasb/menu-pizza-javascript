@@ -1,1 +1,1 @@
-# menu-pizza-javascript
+# Simple Menu Pizza with JavaScript
