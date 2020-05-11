@@ -11,7 +11,12 @@ const path = {
         html: 'src/**/*.html',
         images: 'src/images/*',
         scss: 'src/scss/*.scss',
-        js: 'src/js/**/*.js'
+        js: {
+            dir: 'src/js/**/*.js',
+            mock: 'src/js/mock/*.js',
+            helpers: 'src/js/helpers/*.js',
+            app: 'src/js/app.js'
+        }
     },
     build: {
         images: 'public/assets/images/',
@@ -39,7 +44,11 @@ const sassWatch = () =>
         .pipe(gulp.dest(path.build.css))
 
 const jsWatch = () =>
-    gulp.src([path.src.js])
+    gulp.src([
+            path.src.js.mock,
+            path.src.js.helpers,
+            path.src.js.app
+        ])
         .pipe(babel({presets: ['env']}))
         .pipe(concat('app.min.js'))
         .pipe(uglify())
@@ -55,7 +64,9 @@ const serverWatch = () => {
 
     gulp.watch(path.src.html, htmlWatch)
     gulp.watch(path.src.scss, sassWatch)
-    gulp.watch(path.src.js, jsWatch)
+    gulp.watch(path.src.js.mock, jsWatch)
+    gulp.watch(path.src.js.helpers, jsWatch)
+    gulp.watch(path.src.js.app, jsWatch)
     gulp.watch(path.src.images, imagesWatch)
     gulp.watch("public/**/*.*").on('change', browserSync.reload)
 }
